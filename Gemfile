@@ -56,6 +56,9 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   # RSpec testing framework
   gem 'rspec-rails', '~> 6.0.0.rc1'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :development do
