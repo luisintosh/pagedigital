@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: %i[ show edit update destroy ]
+  before_action :set_page, only: %i[ show edit update update_profile destroy ]
 
-  # GET /pages or /pages.json
+  # GET /pages
   def index
     @pages = Page.all
   end
 
-  # GET /pages/1 or /pages/1.json
+  # GET /pages/1
   def show
   end
 
@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   def edit
   end
 
-  # POST /pages or /pages.json
+  # POST /pages
   def create
     @page = Page.new(page_params)
 
@@ -30,7 +30,7 @@ class PagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pages/1 or /pages/1.json
+  # PATCH/PUT /pages/1
   def update
     if @page.update(page_params)
       redirect_to page_url(@page), notice: "Page was successfully updated."
@@ -39,7 +39,16 @@ class PagesController < ApplicationController
     end
   end
 
-  # DELETE /pages/1 or /pages/1.json
+  # PATCH/PUT /pages/1/update-profile
+  def update_profile
+    if @page.page_profile.update(page_profile_params)
+      redirect_to page_url(@page), notice: "Page was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /pages/1
   def destroy
     @page.destroy
 
@@ -47,13 +56,18 @@ class PagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      @page = Page.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_page
+    page_id = params[:id] || params[:page_id]
+    @page = Page.find(page_id)
+  end
 
-    # Only allow a list of trusted parameters through.
-    def page_params
-      params.require(:page).permit(:slug, :published, :lock_code)
-    end
+  # Only allow a list of trusted parameters through.
+  def page_params
+    params.require(:page).permit(:slug, :published, :lock_code)
+  end
+
+  def page_profile_params
+    params.require(:page_profile).permit(:display_name, :location, :description)
+  end
 end

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Page, type: :model do
+  it { should have_one(:page_profile) }
   it { should validate_presence_of(:slug) }
   it { should validate_uniqueness_of(:slug).case_insensitive }
   it { should validate_length_of(:slug).is_at_least(2).is_at_most(24) }

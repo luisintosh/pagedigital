@@ -118,6 +118,41 @@ RSpec.describe "/pages", type: :request do
     end
   end
 
+  describe "PATCH /update-profile" do
+    context "with valid parameters" do
+      let(:valid_profile_attributes) {
+        attributes_for(:page_profile)
+      }
+
+      it "updates the requested page" do
+        page = Page.create! valid_attributes
+        patch page_update_profile_url(page), params: { page_profile: valid_profile_attributes }
+        page.reload
+        expect(page.page_profile[:display_name]).to eq(valid_profile_attributes[:display_name])
+      end
+
+      it "redirects to the page" do
+        page = Page.create! valid_attributes
+        patch page_update_profile_url(page), params: { page_profile: valid_profile_attributes }
+        page.reload
+        expect(response).to redirect_to(page_url(page))
+      end
+    end
+
+    context "with invalid parameters" do
+      let(:invalid_profile_attributes) {
+        attributes_for(:page_profile, { display_name: Faker::Lorem.paragraph_by_chars(number: 120) })
+      }
+
+      it "renders a response with 422 status (i.e. to display the 'edit' template)" do
+        page = Page.create! valid_attributes
+        patch page_update_profile_url(page), params: { page_profile: invalid_profile_attributes }
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+    end
+  end
+
   describe "DELETE /destroy" do
     it "destroys the requested page" do
       page = Page.create! valid_attributes
