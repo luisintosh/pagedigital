@@ -84,3 +84,5 @@ end
 gem "rack-timeout"
 # css styles
 gem 'bootstrap', '~> 5.1.3'
+# form components
+gem 'simple_form'
