@@ -68,6 +68,6 @@ class PagesController < ApplicationController
   end
 
   def page_profile_params
-    params.require(:page_profile).permit(:display_name, :location, :description)
+    params.require(:page_profile).permit(:display_name, :location, :description, :profile_image, :header_image)
   end
 end
