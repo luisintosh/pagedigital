@@ -1,0 +1,14 @@
+<%= simple_form_for(page_appearance, url: update_appearance_page_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :theme, collection: Appearance::Constants::THEMES.keys, as: :radio_buttons %>
+    <%= f.input :font, collection: Appearance::Constants::FONTS.keys, as: :radio_buttons %>
+    <%= f.input :primary_color, as: :color %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-primary'%>
+  </div>
+<% end %>

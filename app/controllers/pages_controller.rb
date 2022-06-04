@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: %i[ show edit update update_profile destroy ]
+  before_action :set_page, only: %i[ show edit update update_profile update_appearance destroy ]
 
   # GET /pages
   def index
@@ -48,6 +48,15 @@ class PagesController < ApplicationController
     end
   end
 
+  # PATCH/PUT /pages/1/update-appearance
+  def update_appearance
+    if @page.page_appearance.update(page_appearance_params)
+      redirect_to page_url(@page), notice: "Page was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   # DELETE /pages/1
   def destroy
     @page.destroy
@@ -69,5 +78,9 @@ class PagesController < ApplicationController
 
   def page_profile_params
     params.require(:page_profile).permit(:display_name, :location, :description, :profile_image, :header_image)
+  end
+
+  def page_appearance_params
+    params.require(:page_appearance).permit(:theme, :font, :primary_color)
   end
 end
