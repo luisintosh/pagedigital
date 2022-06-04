@@ -4,6 +4,7 @@ class Page < ApplicationRecord
 
   has_one :page_profile, dependent: :destroy
   has_one :page_appearance, dependent: :destroy
+  has_one :page_contact, dependent: :destroy
 
   validates :slug, presence: true, uniqueness: { case_sensitive: false },
                    length: { in: 2..24 }, format: { with: /\A\w+\Z/ },
@@ -16,6 +17,7 @@ class Page < ApplicationRecord
   def build_default_dependencies
     build_page_profile # with default params
     build_page_appearance
+    build_page_contact
     true # response for the callback
   end
 end

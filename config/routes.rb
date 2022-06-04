@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     member do
       patch 'update-profile'
       patch 'update-appearance'
+      patch 'update-contact'
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
