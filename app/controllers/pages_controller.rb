@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: %i[ show edit update update_profile update_appearance update_contact destroy ]
+  before_action :set_page, only: %i[show edit update update_profile update_appearance update_contact update_integration destroy]
 
   # GET /pages
   def index
@@ -57,9 +57,18 @@ class PagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pages/1/update-appearance
+  # PATCH/PUT /pages/1/update-contact
   def update_contact
     if @page.page_contact.update(page_contact_params)
+      redirect_to page_url(@page), notice: "Page was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /pages/1/update-integration
+  def update_integration
+    if @page.page_integration.update(page_integration_params)
       redirect_to page_url(@page), notice: "Page was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -95,5 +104,9 @@ class PagesController < ApplicationController
 
   def page_contact_params
     params.require(:page_contact).permit(:display_public_email, :public_email, :display_public_phone, :public_phone, :public_phone_type, :main_contact_links)
+  end
+
+  def page_integration_params
+    params.require(:page_integration).permit(:facebook_pixel, :google_analytics, :email_capture)
   end
 end
