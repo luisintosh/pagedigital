@@ -1,8 +1,12 @@
 <h1>Editing page</h1>
+<ul class="nav">
+  <li class="nav-item">
+    <%= link_to 'Profile', edit_page_page_profile_url(@page), class: 'nav-link' %>
+  </li>
+</ul>
 
 <%= render "form", page: @page %>
 
-<%= render "profile_form", page_profile: @page.page_profile %>
 <%= render "appearance_form", page_appearance: @page.page_appearance %>
 <%= render "contact_form", page_contact: @page.page_contact %>
 <%= render "integration_form", page_integration: @page.page_integration %>
