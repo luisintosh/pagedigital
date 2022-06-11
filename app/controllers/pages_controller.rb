@@ -1,14 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: %i[show edit update destroy]
-
-  # GET /pages
-  def index
-    @pages = Page.all
-  end
-
-  # GET /pages/1
-  def show
-  end
+  before_action :set_page, only: %i[edit update destroy]
 
   # GET /pages/new
   def new
@@ -24,7 +15,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to page_url(@page), notice: "Page was successfully created."
+      redirect_to edit_page_url(@page), notice: "Page was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +24,7 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   def update
     if @page.update(page_params)
-      redirect_to page_url(@page), notice: "Page was successfully updated."
+      redirect_to edit_page_url(@page), notice: "Page was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -49,8 +40,7 @@ class PagesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_page
-    page_id = params[:id] || params[:page_id]
-    @page = Page.find(page_id)
+    @page = Page.find_by!(slug: params[:slug])
   end
 
   # Only allow a list of trusted parameters through.

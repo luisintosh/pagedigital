@@ -17,7 +17,7 @@ class PageProfilesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_page_profile
-    @page_profile = Page.find(params[:page_id]).page_profile
+    @page_profile = Page.find_by!(slug: params[:page_slug]).page_profile
   end
 
   # Only allow a list of trusted parameters through.

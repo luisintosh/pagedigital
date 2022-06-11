@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :pages do
+  resources :pages, param: :slug do
     resource :page_profile, only: %i[edit update]
     resource :page_appearance, only: %i[edit update]
     resource :page_contact, only: %i[edit update]

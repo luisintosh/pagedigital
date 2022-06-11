@@ -13,6 +13,12 @@ class Page < ApplicationRecord
 
   before_create :build_default_dependencies
 
+  # helps to url helpers to use the slug instead of id to build the url
+  def to_param
+    super
+    slug
+  end
+
   private
 
   def build_default_dependencies

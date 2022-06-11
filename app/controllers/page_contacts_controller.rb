@@ -17,7 +17,7 @@ class PageContactsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_page_contact
-    @page_contact = Page.find(params[:page_id]).page_contact
+    @page_contact = Page.find_by!(slug: params[:page_slug]).page_contact
   end
 
   # Only allow a list of trusted parameters through.
