@@ -1,0 +1,17 @@
+<ul class="nav">
+  <li class="nav-item">
+    <%= link_to 'Profile', edit_page_page_profile_url(page), class: class_names('nav-link', { active: current_page?(edit_page_page_profile_url(page)) }) %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Appearance', edit_page_page_appearance_url(page), class: class_names('nav-link', { active: current_page?(edit_page_page_appearance_url(page)) }) %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Contact Information', edit_page_page_contact_url(page), class: class_names('nav-link', { active: current_page?(edit_page_page_contact_url(page)) }) %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Integration', edit_page_page_integration_url(page), class: class_names('nav-link', { active: current_page?(edit_page_page_integration_url(page)) }) %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Configuration', edit_page_url(page), class: class_names('nav-link', { active: current_page?(edit_page_url(page)) }) %>
+  </li>
+</ul>
