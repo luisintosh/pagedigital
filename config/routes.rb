@@ -3,9 +3,7 @@ Rails.application.routes.draw do
     resource :page_profile, only: %i[edit update]
     resource :page_appearance, only: %i[edit update]
     resource :page_contact, only: %i[edit update]
-    member do
-      patch 'update-integration'
-    end
+    resource :page_integration, only: %i[edit update]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

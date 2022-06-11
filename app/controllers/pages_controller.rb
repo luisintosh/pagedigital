@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: %i[show edit update update_profile update_appearance update_contact update_integration destroy]
+  before_action :set_page, only: %i[show edit update destroy]
 
   # GET /pages
   def index
@@ -39,15 +39,6 @@ class PagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pages/1/update-integration
-  def update_integration
-    if @page.page_integration.update(page_integration_params)
-      redirect_to page_url(@page), notice: "Page was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
   # DELETE /pages/1
   def destroy
     @page.destroy
@@ -65,9 +56,5 @@ class PagesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def page_params
     params.require(:page).permit(:slug, :published, :lock_code)
-  end
-
-  def page_integration_params
-    params.require(:page_integration).permit(:facebook_pixel, :google_analytics, :email_capture)
   end
 end
