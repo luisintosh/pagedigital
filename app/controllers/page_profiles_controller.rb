@@ -8,7 +8,7 @@ class PageProfilesController < ApplicationController
   # PATCH/PUT /page/1/page_profiles/1
   def update
     if @page_profile.update(page_profile_params)
-      redirect_to edit_page_page_profile_url(@page_profile), notice: "Page profile was successfully updated."
+      redirect_to edit_page_page_profile_url(@page_profile.page), notice: "Page profile was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
