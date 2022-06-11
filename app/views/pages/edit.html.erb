@@ -6,11 +6,13 @@
   <li class="nav-item">
     <%= link_to 'Appearance', edit_page_page_appearance_url(@page), class: 'nav-link' %>
   </li>
+  <li class="nav-item">
+    <%= link_to 'Contact Information', edit_page_page_contact_url(@page), class: 'nav-link' %>
+  </li>
 </ul>
 
 <%= render "form", page: @page %>
 
-<%= render "contact_form", page_contact: @page.page_contact %>
 <%= render "integration_form", page_integration: @page.page_integration %>
 
 <br>

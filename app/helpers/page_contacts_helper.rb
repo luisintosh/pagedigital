@@ -1,0 +1,2 @@
+module PageContactsHelper
+end
