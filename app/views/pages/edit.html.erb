@@ -3,11 +3,13 @@
   <li class="nav-item">
     <%= link_to 'Profile', edit_page_page_profile_url(@page), class: 'nav-link' %>
   </li>
+  <li class="nav-item">
+    <%= link_to 'Appearance', edit_page_page_appearance_url(@page), class: 'nav-link' %>
+  </li>
 </ul>
 
 <%= render "form", page: @page %>
 
-<%= render "appearance_form", page_appearance: @page.page_appearance %>
 <%= render "contact_form", page_contact: @page.page_contact %>
 <%= render "integration_form", page_integration: @page.page_integration %>
 

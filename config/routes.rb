@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :pages do
     resource :page_profile, only: %i[edit update]
+    resource :page_appearance, only: %i[edit update]
     member do
-      patch 'update-appearance'
       patch 'update-contact'
       patch 'update-integration'
     end

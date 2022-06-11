@@ -1,5 +1,5 @@
 class PageProfilesController < ApplicationController
-  before_action :set_page_profile, only: %i[ show edit update destroy ]
+  before_action :set_page_profile, only: %i[edit update]
 
   # GET /page/1/page_profiles/edit
   def edit

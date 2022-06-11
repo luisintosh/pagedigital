@@ -39,15 +39,6 @@ class PagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pages/1/update-appearance
-  def update_appearance
-    if @page.page_appearance.update(page_appearance_params)
-      redirect_to page_url(@page), notice: "Page was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
   # PATCH/PUT /pages/1/update-contact
   def update_contact
     if @page.page_contact.update(page_contact_params)
@@ -83,10 +74,6 @@ class PagesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def page_params
     params.require(:page).permit(:slug, :published, :lock_code)
-  end
-
-  def page_appearance_params
-    params.require(:page_appearance).permit(:theme, :font, :primary_color)
   end
 
   def page_contact_params
