@@ -7,7 +7,13 @@
     <%= f.input :display_name %>
     <%= f.input :location %>
     <%= f.input :description %>
+    <% if @page_profile.profile_image.representable? %>
+      <%= image_tag @page_profile.profile_image, size: 150 %>
+    <% end %>
     <%= f.input :profile_image, input_html: { direct_upload: true, accept: 'image/*' } %>
+    <% if @page_profile.header_image.representable? %>
+      <%= image_tag @page_profile.header_image, size: 150 %>
+    <% end %>
     <%= f.input :header_image, input_html: { direct_upload: true, accept: 'image/*' } %>
   </div>
 
