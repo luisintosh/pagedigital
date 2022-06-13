@@ -9,6 +9,10 @@
     <%= f.input :embedded %>
     <%= f.input :highlight %>
     <%= f.input :custom_thumbnail %>
+    <% if @content_item.custom_thumbnail_image.representable? %>
+      <%= image_tag @content_item.custom_thumbnail_image, size: 150 %>
+    <% end %>
+    <%= f.input :custom_thumbnail_image, input_html: { direct_upload: true, accept: 'image/*' } %>
     <%= f.input :schedule %>
     <%= f.input :schedule_date %>
     <%= f.input :position %>

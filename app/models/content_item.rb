@@ -3,6 +3,8 @@ class ContentItem < ApplicationRecord
 
   belongs_to :page
 
+  has_one_attached :custom_thumbnail_image
+
   validates :url, presence: true
   validates :title, presence: true, length: { maximum: 255 }
   validates :subtitle, length: { maximum: 255 }

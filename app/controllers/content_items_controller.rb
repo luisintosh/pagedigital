@@ -67,6 +67,6 @@ class ContentItemsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def content_item_params
-    params.require(:content_item).permit(:url, :title, :subtitle, :embedded, :highlight, :custom_thumbnail, :schedule, :schedule_date, :position)
+    params.require(:content_item).permit(:url, :title, :subtitle, :embedded, :highlight, :custom_thumbnail, :custom_thumbnail_image, :schedule, :schedule_date, :position)
   end
 end
