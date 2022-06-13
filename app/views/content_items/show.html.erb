@@ -1,0 +1,12 @@
+<%= link_to "Back links", page_content_items_path %>
+
+<h1>Displaying Link</h1>
+
+<%= turbo_frame_tag @content_item do %>
+  <%= render @content_item %>
+<% end %>
+
+<div>
+  <%= link_to "Edit this content item", edit_page_content_item_path(@content_item) %>
+  <%= button_to "Destroy this content item", page_content_items_path(@content_item), method: :delete %>
+</div>

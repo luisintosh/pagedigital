@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resource :page_appearance, only: %i[edit update]
     resource :page_contact, only: %i[edit update]
     resource :page_integration, only: %i[edit update]
+    resources :content_items
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

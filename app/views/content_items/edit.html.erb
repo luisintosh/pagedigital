@@ -1,0 +1,7 @@
+<%= link_to "Back links", page_content_items_path %>
+
+<h1>Editing Link</h1>
+
+<%= turbo_frame_tag @content_item do %>
+  <%= render "form", content_item: @content_item %>
+<% end %>

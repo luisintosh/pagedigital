@@ -7,6 +7,8 @@ class Page < ApplicationRecord
   has_one :page_contact, dependent: :destroy
   has_one :page_integration, dependent: :destroy
 
+  has_many :content_items, dependent: :destroy
+
   validates :slug, presence: true, uniqueness: { case_sensitive: false },
                    length: { in: 2..24 }, format: { with: /\A\w+\Z/ },
                    exclusion: { in: Page::BLACK_LIST }

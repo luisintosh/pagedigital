@@ -1,0 +1,16 @@
+<h1>Links</h1>
+
+<%= render 'components/page_navbar', page: @page %>
+
+<%= link_to "New link", new_page_content_item_path, class: 'btn btn-primary', data: { turbo_frame: dom_id(ContentItem.new) } %>
+
+<%= turbo_frame_tag ContentItem.new do %>
+<% end %>
+
+<hr>
+
+<%= turbo_frame_tag :page_content_items do %>
+  <% @content_items.each do |content_item| %>
+    <%= render content_item %>
+  <% end %>
+<% end %>

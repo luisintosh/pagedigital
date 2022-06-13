@@ -1,4 +1,7 @@
-<ul class="nav">
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <%= link_to 'Links', page_content_items_url(page), class: class_names('nav-link', { active: current_page?(page_content_items_url(page)) }) %>
+  </li>
   <li class="nav-item">
     <%= link_to 'Profile', edit_page_page_profile_url(page), class: class_names('nav-link', { active: current_page?(edit_page_page_profile_url(page)) }) %>
   </li>

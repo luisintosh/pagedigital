@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_04_205347) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_12_013523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_04_205347) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "content_items", force: :cascade do |t|
+    t.string "url"
+    t.string "title"
+    t.string "subtitle"
+    t.boolean "embedded"
+    t.boolean "highlight"
+    t.boolean "custom_thumbnail"
+    t.boolean "schedule"
+    t.datetime "schedule_date"
+    t.integer "position"
+    t.bigint "page_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_content_items_on_page_id"
   end
 
   create_table "page_appearances", force: :cascade do |t|
@@ -96,6 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_04_205347) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "content_items", "pages"
   add_foreign_key "page_appearances", "pages"
   add_foreign_key "page_contacts", "pages"
   add_foreign_key "page_integrations", "pages"
