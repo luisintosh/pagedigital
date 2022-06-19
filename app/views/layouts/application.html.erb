@@ -12,6 +12,14 @@
 
   <body>
     <div class="container">
+      <%= render 'components/navbar' %>
+      <div class="my-4">
+        <%= render 'components/page_info', page: @page %>
+      </div>
+      <div class="my-4">
+        <%= render 'components/page_navbar', page: @page %>
+      </div>
+
       <%= yield %>
     </div>
   </body>
