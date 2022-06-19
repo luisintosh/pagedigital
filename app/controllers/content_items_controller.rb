@@ -1,5 +1,4 @@
 class ContentItemsController < ApplicationController
-  before_action :set_page
   before_action :set_content_item, only: %i[ show edit update destroy ]
 
   # GET /content_items or /content_items.json
@@ -56,11 +55,8 @@ class ContentItemsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_page
-    @page = Page.find_by!(slug: params[:page_slug])
-  end
 
+  # Use callbacks to share common setup or constraints between actions.
   def set_content_item
     @content_item = @page.content_items.find(params[:id])
   end
