@@ -1,3 +1,4 @@
+<!--Content item actions-->
 <div class="actions row justify-content-md-center my-5">
   <div class="col col-lg-4 d-grid">
     <%= link_to "New link", new_page_content_item_path, class: 'btn btn-primary btn-lg', data: { turbo_frame: dom_id(ContentItem.new) } %>
@@ -7,12 +8,14 @@
   </div>
 </div>
 
-<%= turbo_frame_tag ContentItem.new do %>
-<% end %>
+<!--New content item form-->
+<div class="my-4">
+  <%= turbo_frame_tag ContentItem.new do %>
+  <% end %>
+</div>
 
-<hr>
-
-<%= turbo_frame_tag :page_content_items do %>
+<!--List of content items-->
+<%= turbo_frame_tag :page_content_items, class: 'd-grid gap-3' do %>
   <% @content_items.each do |content_item| %>
     <%= render content_item %>
   <% end %>
