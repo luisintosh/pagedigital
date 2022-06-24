@@ -1,5 +1,5 @@
 class ContentItemsController < ApplicationController
-  before_action :set_content_item, only: %i[ show edit update destroy ]
+  before_action :set_content_item, only: %i[ show edit update destroy reorder_link ]
 
   # GET /content_items or /content_items.json
   def index
@@ -54,6 +54,18 @@ class ContentItemsController < ApplicationController
     end
   end
 
+  # PATCH /content_items/reorderLink
+  def reorder_link
+    destination = params[:destination]
+    respond_to do |format|
+      if @content_item.update_position(destination)
+        format.json { head :ok }
+      else
+        format.json { head :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -63,6 +75,6 @@ class ContentItemsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def content_item_params
-    params.require(:content_item).permit(:url, :title, :subtitle, :embedded, :highlight, :custom_thumbnail, :custom_thumbnail_image, :schedule, :schedule_date, :position)
+    params.require(:content_item).permit(:url, :title, :subtitle, :embedded, :highlight, :custom_thumbnail, :custom_thumbnail_image, :schedule, :schedule_date)
   end
 end

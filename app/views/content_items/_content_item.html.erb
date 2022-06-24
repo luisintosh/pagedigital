@@ -1,19 +1,17 @@
-<%= turbo_frame_tag content_item do %>
+<%= turbo_frame_tag content_item, class: 'page_content_item' do %>
   <div class="card">
     <div class="card-body">
       <div class="row">
-        <%= link_to edit_page_content_item_path(content_item.page, content_item), class: 'col text-decoration-none' do %>
-          <div class="row">
-            <div class="col-auto">
-              <%= content_item_image_tag(content_item, size: 75) %>
-            </div>
-            <div class="col d-flex flex-column justify-content-center">
-              <div class="item-title"><%= content_item.title %></div>
-              <div class="item-url text-muted"><%= content_item.url %></div>
-            </div>
-          </div>
-        <% end %>
-        <div class="col-auto d-flex align-items-center">
+        <div class="col-auto d-none d-md-block content-item-image">
+          <%= link_to content_item_image_tag(content_item, size: 75), edit_page_content_item_path(content_item.page, content_item) %>
+        </div>
+        <div class="col content-item-info d-flex align-items-center overflow-hidden">
+          <%= link_to edit_page_content_item_path(content_item.page, content_item), class: 'd-block text-decoration-none w-100' do %>
+            <div class="item-title text-truncate" title="<%= content_item.title %>"><%= content_item.title %></div>
+            <div class="item-url text-muted text-truncate" title="<%= content_item.url %>"><%= content_item.url %></div>
+          <% end %>
+        </div>
+        <div class="col-auto content-item-move-icon d-flex align-items-center cursor-grab" data-reorder-href="<%= reorder_link_page_content_item_path(content_item.page, content_item) %>">
           <i class="bi bi-arrow-down-up"></i>
         </div>
       </div>

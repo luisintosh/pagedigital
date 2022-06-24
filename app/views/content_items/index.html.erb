@@ -15,7 +15,7 @@
 </div>
 
 <!--List of content items-->
-<%= turbo_frame_tag :page_content_items, class: 'd-grid gap-3' do %>
+<%= turbo_frame_tag :page_content_items, class: 'd-flex flex-column gap-3' do %>
   <% @content_items.each do |content_item| %>
     <%= render content_item %>
   <% end %>

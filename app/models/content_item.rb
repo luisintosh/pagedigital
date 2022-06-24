@@ -10,5 +10,32 @@ class ContentItem < ApplicationRecord
   validates :subtitle, length: { maximum: 255 }
   validates :position, numericality: { only_integer: true }, length: { maximum: 2 }
 
-  scope :ordered, -> { order(position: :desc) }
+  after_create :update_position_in_list
+
+  scope :ordered, -> { order(position: :asc) }
+
+  # on position change update the entire list of content items
+  def update_position(index)
+    self.position = index
+    return unless position_changed?
+
+    update_position_in_list
+  end
+
+  private
+
+  # update the entire list of content items
+  def update_position_in_list
+    ActiveRecord::Base.transaction do
+      ids = ContentItem.select(:id).where(page_id:).ordered.collect(&:id)
+      ids.delete(id)
+      if position >= ids.length
+        ids.push(id)
+      else
+        ids.insert(position, id)
+      end
+      values = ids.map.with_index { |_, index| { position: index } }
+      ContentItem.update!(ids, values)
+    end
+  end
 end
