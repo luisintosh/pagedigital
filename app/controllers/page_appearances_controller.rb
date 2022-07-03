@@ -1,4 +1,5 @@
 class PageAppearancesController < ApplicationController
+  before_action :set_page
   before_action :set_page_appearance, only: %i[edit update]
 
   # GET /page/1/page_appearances/edit

@@ -1,4 +1,5 @@
 class PageContactsController < ApplicationController
+  before_action :set_page
   before_action :set_page_contact, only: %i[edit update]
 
   # GET /page/1/page_contacts/edit

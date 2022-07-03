@@ -1,4 +1,5 @@
 class ContentItemsController < ApplicationController
+  before_action :set_page
   before_action :set_content_item, only: %i[ show edit update destroy reorder_link ]
 
   # GET /content_items or /content_items.json

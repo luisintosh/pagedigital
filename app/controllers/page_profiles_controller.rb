@@ -1,4 +1,5 @@
 class PageProfilesController < ApplicationController
+  before_action :set_page
   before_action :set_page_profile, only: %i[edit update]
 
   # GET /page/1/page_profiles/edit
