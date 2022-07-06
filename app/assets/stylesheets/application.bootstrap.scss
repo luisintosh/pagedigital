@@ -9,3 +9,8 @@
 .sortable-ghost {
   opacity: 0.4;
 }
+
+.links-container {
+  @include make-container(0);
+  max-width: map-get($container-max-widths, 'md');
+}

@@ -1,22 +1,26 @@
-<!--Content item actions-->
-<div class="actions row justify-content-md-center my-5">
-  <div class="col col-lg-4 d-grid">
-    <%= link_to "New link", new_page_content_item_path, class: 'btn btn-primary btn-lg', data: { turbo_frame: dom_id(ContentItem.new) } %>
+<div class="links-container">
+  <!--Content item actions-->
+  <div class="actions row my-5">
+    <div class="col-12 col-md d-grid">
+      <%= link_to "New link", new_page_content_item_path, class: 'btn btn-primary', data: { turbo_frame: dom_id(ContentItem.new) } %>
+    </div>
+    <div class="col-md-1 py-2 my-md-0">
+    </div>
+    <div class="col-12 col-md d-grid">
+      <button type="button" class="btn btn-outline-primary">Explore ideas</button>
+    </div>
   </div>
-  <div class="col col-lg-4 d-grid">
-    <button type="button" class="btn btn-outline-primary">Explore ideas</button>
-  </div>
-</div>
 
-<!--New content item form-->
-<div class="my-4">
-  <%= turbo_frame_tag ContentItem.new do %>
+  <!--New content item form-->
+  <div class="my-4">
+    <%= turbo_frame_tag ContentItem.new do %>
+    <% end %>
+  </div>
+
+  <!--List of content items-->
+  <%= turbo_frame_tag :page_content_items, class: 'd-flex flex-column gap-3' do %>
+    <% @content_items.each do |content_item| %>
+      <%= render content_item %>
+    <% end %>
   <% end %>
 </div>
-
-<!--List of content items-->
-<%= turbo_frame_tag :page_content_items, class: 'd-flex flex-column gap-3' do %>
-  <% @content_items.each do |content_item| %>
-    <%= render content_item %>
-  <% end %>
-<% end %>
