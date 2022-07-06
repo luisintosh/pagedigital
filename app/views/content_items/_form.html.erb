@@ -1,24 +1,89 @@
 <%= simple_form_for(@content_item, url: url_for([@content_item.page, @content_item])) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="card">
+    <div class="card-body">
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :url %>
-    <%= f.input :title %>
-    <%= f.input :subtitle %>
-    <%= f.input :embedded %>
-    <%= f.input :highlight %>
-    <%= f.input :custom_thumbnail %>
-    <% if @content_item.custom_thumbnail_image.representable? %>
-      <%= image_tag @content_item.custom_thumbnail_image, size: 150 %>
-    <% end %>
-    <%= f.input :custom_thumbnail_image, input_html: { direct_upload: true, accept: 'image/*' } %>
-    <%= f.input :schedule %>
-    <%= f.input :schedule_date %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :url %>
+        <%= f.input :title %>
+        <%= f.input :subtitle %>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: 'btn-primary' %>
-    <%= link_to 'Cancel', page_content_items_url(@content_item.page), class: 'btn' %>
+        <div class="extra-features mt-4">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_embedded') %>" type="button" role="tab" aria-controls="home" aria-selected="true">
+                <%= f.input :embedded, label: false do %>
+                  <%= f.input_field :embedded, class: 'form-check-input' %>
+                  <span>Embedded</span>
+                <% end %>
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_highlight') %>" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                <%= f.input :highlight, label: false do %>
+                  <%= f.input_field :highlight, class: 'form-check-input' %>
+                  <span>Highlight</span>
+                <% end %>
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_custom_thumbnail') %>" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                <%= f.input :custom_thumbnail, label: false do %>
+                  <%= f.input_field :custom_thumbnail, class: 'form-check-input' %>
+                  <span>Custom thumbnail</span>
+                <% end %>
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_schedule') %>" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                <%= f.input :schedule, label: false do %>
+                  <%= f.input_field :schedule, class: 'form-check-input' %>
+                  <span>Schedule</span>
+                <% end %>
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content bg-light">
+            <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_embedded') %>" role="tabpanel" aria-labelledby="embedded-tab">
+              <h5>What is an embedded link?</h5>
+              <p>Display the link content directly in your page, like a Youtube video or Instagram post.</p>
+            </div>
+            <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_highlight') %>" role="tabpanel" aria-labelledby="highlight-tab">
+              <h5>What is a highlight link?</h5>
+              <p>Draw attention to your most important link.</p>
+            </div>
+            <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_custom_thumbnail') %>" role="tabpanel" aria-labelledby="custom_thumbnail-tab">
+              <h5>What is a custom thumbnail?</h5>
+              <p>Add a Thumbnail or Icon to this Link.</p>
+              <div class="row">
+                <div class="col-auto">
+                  <% if @content_item.custom_thumbnail_image.representable? %>
+                    <%= image_tag @content_item.custom_thumbnail_image, size: 100 %>
+                  <% end %>
+                </div>
+                <div class="col d-flex align-items-center">
+                  <%= f.input :custom_thumbnail_image, label: false, input_html: { direct_upload: true, accept: 'image/*', class: 'form-control' } %>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_schedule') %>" role="tabpanel" aria-labelledby="schedule-tab">
+              <h5>How to schedule a link?</h5>
+              <p>Schedule when your links go live.</p>
+              <%= f.input :schedule_date, as: :datetime, html5: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex flex-row-reverse justify-content-between">
+        <div>
+          <%= link_to 'Cancel', page_content_items_url(@content_item.page), class: 'btn' %>
+          <%= f.button :submit, class: 'btn-primary' %>
+        </div>
+        <%= link_to 'Delete', [@content_item.page, @content_item], class: 'btn btn-danger', data: { turbo_method: :delete } if @content_item.persisted? %>
+      </div>
+    </div>
   </div>
 <% end %>
