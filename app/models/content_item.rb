@@ -13,6 +13,7 @@ class ContentItem < ApplicationRecord
   after_create :update_position_in_list
 
   scope :ordered, -> { order(position: :asc) }
+  scope :includes_all, -> { ordered.includes([:page, { custom_thumbnail_image_attachment: :blob }]) }
 
   # on position change update the entire list of content items
   def update_position(index)

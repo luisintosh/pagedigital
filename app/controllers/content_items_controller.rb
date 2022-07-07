@@ -4,7 +4,7 @@ class ContentItemsController < ApplicationController
 
   # GET /content_items or /content_items.json
   def index
-    @content_items = @page.content_items.ordered
+    @content_items = @page.content_items.includes_all
   end
 
   # GET /content_items/1 or /content_items/1.json
