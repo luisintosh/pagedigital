@@ -1,6 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'page_admin';
+@import 'page_profile_admin';
 
 .cursor-grab {
   cursor: grab;
@@ -10,7 +11,7 @@
   opacity: 0.4;
 }
 
-.links-container {
+.md-container {
   @include make-container(0);
   max-width: map-get($container-max-widths, 'md');
 }
