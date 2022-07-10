@@ -1,15 +1,27 @@
+<div class="md-container">
+  <h2>Appearance</h2>
 
-<%= simple_form_for(@page_appearance, url: page_page_appearance_url) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="card">
+    <div class="card-body">
+      <%= simple_form_for(@page_appearance, url: page_page_appearance_url) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :theme, collection: Appearance::Constants::THEMES.keys, as: :radio_buttons %>
-    <%= f.input :font, collection: Appearance::Constants::FONTS.keys, as: :radio_buttons %>
-    <%= f.input :primary_color, as: :color %>
+        <div class="form-inputs">
+
+          <%= f.input :theme, collection: Appearance::Constants::THEMES.keys,as: :radio_buttons,
+                      item_label_class: 'btn btn-outline-primary btn-lg bg-transparent text-body border border-2', collection_wrapper_tag: 'div',
+                      collection_wrapper_class: 'row', item_wrapper_class: 'col col-6 col-md-3' %>
+          <%= f.input :font, collection: Appearance::Constants::FONTS.keys, as: :radio_buttons,
+                      item_label_class: 'btn btn-outline-primary btn-lg bg-transparent text-body border border-2', collection_wrapper_tag: 'div',
+                      collection_wrapper_class: 'row', item_wrapper_class: 'col col-6 col-md-3' %>
+          <%= f.input :primary_color, as: :color %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: 'btn-primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: 'btn-primary' %>
-  </div>
-<% end %>
+</div>
