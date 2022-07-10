@@ -1,14 +1,27 @@
-<%= simple_form_for(page) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="md-container">
+  <h2>Page settings</h2>
 
-  <div class="form-inputs">
-    <%= f.input :slug %>
-    <%= f.input :published %>
-    <%= f.input :lock_code %>
-  </div>
+  <div class="card">
+    <div class="card-body">
+      <%= simple_form_for(page) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: 'btn-primary'%>
+        <div class="form-inputs">
+          <%= f.input :slug, label: 'Page URL' do %>
+            <div class="input-group">
+              <span class="input-group-text">https://page.digital/</span>
+              <%= f.input_field :slug, class: 'form-control' %>
+            </div>
+          <% end %>
+          <%= f.input :published %>
+          <%= f.input :lock_code %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: 'btn-primary'%>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
