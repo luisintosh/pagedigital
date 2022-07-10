@@ -1,15 +1,22 @@
+<div class="md-container">
+  <h2>Integration with external tools</h2>
 
-<%= simple_form_for(@page_integration, url: page_page_integration_url) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="card">
+    <div class="card-body">
+      <%= simple_form_for(@page_integration, url: page_page_integration_url) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :facebook_pixel %>
-    <%= f.input :google_analytics %>
-    <%= f.input :email_capture, as: :boolean %>
+        <div class="form-inputs">
+          <%= f.input :facebook_pixel %>
+          <%= f.input :google_analytics %>
+          <%= f.input :email_capture, as: :boolean %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: 'btn-primary'%>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: 'btn-primary'%>
-  </div>
-<% end %>
+</div>
