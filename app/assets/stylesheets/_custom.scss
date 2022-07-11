@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+body {
+  background-color: $gray-200;
+  > .container {
+    background-color: $white;
+  }
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.sortable-ghost {
+  opacity: 0.4;
+}
+
+.md-container {
+  @include make-container(0);
+  max-width: map-get($container-max-widths, 'md');
+}

@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light border border-1 rounded">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+  <div class="container">
     <%= link_to 'Page.digital', '#', class: 'navbar-brand' %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -7,13 +7,22 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">My Page</a>
+          <%= link_to '🔗 Links', page_content_items_url(page), class: class_names('nav-link', { active: current_page?(page_content_items_url(page)) }) %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Account</a>
+          <%= link_to '📝 Profile', edit_page_page_profile_url(page), class: class_names('nav-link', { active: current_page?(edit_page_page_profile_url(page)) }) %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <%= link_to '💅 Appearance', edit_page_page_appearance_url(page), class: class_names('nav-link', { active: current_page?(edit_page_page_appearance_url(page)) }) %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '💌 Contact', edit_page_page_contact_url(page), class: class_names('nav-link', { active: current_page?(edit_page_page_contact_url(page)) }) %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '👁️ Integration', edit_page_page_integration_url(page), class: class_names('nav-link', { active: current_page?(edit_page_page_integration_url(page)) }) %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '⚙️ Configuration', edit_page_url(page), class: class_names('nav-link', { active: current_page?(edit_page_url(page)) }) %>
         </li>
       </ul>
     </div>

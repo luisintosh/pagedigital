@@ -1,0 +1,30 @@
+form {
+  // padding for input elements
+  .form-group {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+  // radio inputs like square
+  .form-inputs {
+    fieldset {
+      .col {
+        input {
+          display: none;
+        }
+        label.btn {
+          text-transform: capitalize;
+          width: 100%;
+          margin: 0.5rem 0;
+        }
+        input[type="radio"]:checked + label.btn {
+          border-color: $primary !important;
+        }
+      }
+    }
+  }
+  .form-actions {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

@@ -1,18 +1,7 @@
+@import 'variables';
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import 'custom';
 @import 'page_admin';
 @import 'page_profile_admin';
-@import 'simpleform_radio_options';
-
-.cursor-grab {
-  cursor: grab;
-}
-
-.sortable-ghost {
-  opacity: 0.4;
-}
-
-.md-container {
-  @include make-container(0);
-  max-width: map-get($container-max-widths, 'md');
-}
+@import 'simpleform';

@@ -12,18 +12,18 @@
         <div class="extra-features mt-4">
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_embedded') %>" type="button" role="tab" aria-controls="home" aria-selected="true">
-                <%= f.input :embedded, label: false do %>
-                  <%= f.input_field :embedded, class: 'form-check-input' %>
-                  <span>Embedded</span>
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_highlight') %>" type="button" role="tab" aria-controls="profile" aria-selected="true">
+                <%= f.input :highlight, label: false do %>
+                  <%= f.input_field :highlight, class: 'form-check-input' %>
+                  <span>Highlight</span>
                 <% end %>
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_highlight') %>" type="button" role="tab" aria-controls="profile" aria-selected="false">
-                <%= f.input :highlight, label: false do %>
-                  <%= f.input_field :highlight, class: 'form-check-input' %>
-                  <span>Highlight</span>
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_embedded') %>" type="button" role="tab" aria-controls="home" aria-selected="true">
+                <%= f.input :embedded, label: false do %>
+                  <%= f.input_field :embedded, class: 'form-check-input' %>
+                  <span>Embedded</span>
                 <% end %>
               </button>
             </li>
@@ -45,17 +45,17 @@
             </li>
           </ul>
           <div class="tab-content bg-light">
-            <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_embedded') %>" role="tabpanel" aria-labelledby="embedded-tab">
-              <h5>What is an embedded link?</h5>
-              <p>Display the link content directly in your page, like a Youtube video or Instagram post.</p>
-            </div>
-            <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_highlight') %>" role="tabpanel" aria-labelledby="highlight-tab">
-              <h5>What is a highlight link?</h5>
+            <div class="tab-pane fade show active p-3" id="<%= dom_id(@content_item, 'tab_highlight') %>" role="tabpanel" aria-labelledby="highlight-tab">
+              <h5>Highlight link</h5>
               <p>Draw attention to your most important link.</p>
             </div>
+            <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_embedded') %>" role="tabpanel" aria-labelledby="embedded-tab">
+              <h5>Embedded link</h5>
+              <p>Display the link content directly in your page, like a Youtube video or Instagram post when it's possible.</p>
+            </div>
             <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_custom_thumbnail') %>" role="tabpanel" aria-labelledby="custom_thumbnail-tab">
-              <h5>What is a custom thumbnail?</h5>
-              <p>Add a Thumbnail or Icon to this Link.</p>
+              <h5>Custom thumbnail</h5>
+              <p>Add a Thumbnail image or Icon to this Link (recommended size: 150x150 px).</p>
               <div class="row">
                 <div class="col-auto">
                   <% if @content_item.custom_thumbnail_image.representable? %>
@@ -68,8 +68,8 @@
               </div>
             </div>
             <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_schedule') %>" role="tabpanel" aria-labelledby="schedule-tab">
-              <h5>How to schedule a link?</h5>
-              <p>Schedule when your links go live.</p>
+              <h5>Schedule a link</h5>
+              <p>Schedule when your Link go live.</p>
               <%= f.input :schedule_date, as: :datetime, html5: true %>
             </div>
           </div>

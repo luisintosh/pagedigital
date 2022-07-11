@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#qr-code">
+    <button class="btn btn-sm btn-secondary border border-dark" data-bs-toggle="modal" data-bs-target="#qr-code">
       <i class="bi bi-qr-code"></i>
     </button>
     <div id="qr-code" class="modal" tabindex="-1">
@@ -19,13 +19,13 @@
   </div>
 
   <div class="col-auto">
-    <%= link_to public_page_url(page), class: 'btn btn-sm btn-outline-info', target: :_blank do %>
+    <%= link_to public_page_url(page), class: 'btn btn-sm btn-secondary border border-dark', target: :_blank do %>
       <span><%= "page.digital#{public_page_path(page)}" %></span>
       <i class="bi bi-box-arrow-up-right"></i>
     <% end %>
   </div>
 
   <div class="col text-lg-end">
-    <%= link_to 'Share', public_page_url(page), class: 'btn btn-sm btn-outline-info disabled' %>
+    <%= link_to 'Share', public_page_url(page), class: 'btn btn-sm btn-secondary border border-dark disabled' %>
   </div>
 </div>
