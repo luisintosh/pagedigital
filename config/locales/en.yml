@@ -30,4 +30,23 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      content_item:
+        create: "Create Link"
+        update: "Update Link"
+      page_appearance:
+        create: "Update"
+        update: "Update"
+      page_contact:
+        create: "Update"
+        update: "Update"
+      page_integration:
+        create: "Update"
+        update: "Update"
+      page_profile:
+        create: "Update"
+        update: "Update"
+      page:
+        create: "Create Page"
+        update: "Update"
