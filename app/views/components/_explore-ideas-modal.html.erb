@@ -1,0 +1,36 @@
+<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#explore-ideas-modal">Explore ideas 🧠</button>
+<div id="explore-ideas-modal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Recommended websites for your page</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <% ContentIdeas::Items::ITEMS.each do |item| %>
+            <div class="col-12">
+              <h5><%= item[:title] %></h5>
+              <div class="text-muted mb-2"><%= item[:subtitle] %></div>
+            </div>
+            <% item[:links].each do |link| %>
+              <div class="col col-md-6 d-flex align-items-center my-2">
+                <div class="icon">
+                  <%= image_tag link[:icon], width: 40, height: 40, class: 'rounded' %>
+                </div>
+                <div class="info flex-grow-1 mx-2">
+                  <strong><%= link[:title] %></strong>
+                  <div class="text-muted"><%= link[:subtitle] %></div>
+                </div>
+                <div class="action">
+                  <%= link_to 'Info', link[:link], class: 'link-primary', target: '_blank' %>
+                </div>
+              </div>
+            <% end %>
+            <div class="col-12 border-top pb-3 mt-3"></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
