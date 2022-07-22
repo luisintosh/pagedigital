@@ -6,7 +6,13 @@
   opacity: 0.4;
 }
 
-.md-container {
-  @include make-container(0);
-  max-width: map-get($container-max-widths, 'md');
+.container {
+  &-md {
+    @include make-container(0);
+    max-width: map-get($container-max-widths, 'md');
+  }
+  &-lg {
+    @include make-container(0);
+    max-width: map-get($container-max-widths, 'lg');
+  }
 }
