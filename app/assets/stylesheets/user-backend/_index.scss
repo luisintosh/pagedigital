@@ -1,0 +1,9 @@
+body.user-app {
+  background-color: $gray-200;
+  > .container {
+    background-color: $white;
+  }
+
+  @import 'page_admin';
+  @import 'page_profile_admin';
+}

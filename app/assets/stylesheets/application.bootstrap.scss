@@ -1,20 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
 @import 'variables';
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'custom';
 @import 'simpleform';
-
-body.user-app {
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
-  background-color: $gray-200;
-  > .container {
-    background-color: $white;
-  }
-
-  @import 'page_admin';
-  @import 'page_profile_admin';
-}
-
-body.public-page.user-profile {
-  // public page css
-}
+// user backend styles
+@import 'user-backend/index';
+// public page styles
+@import 'public-front/index';

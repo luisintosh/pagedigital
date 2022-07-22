@@ -1,27 +1,93 @@
-<div class="wrap vh-100">
+<div class="wrap vh-100 bg-light">
   <div class="wrap-inner">
 <!--    navigation bar-->
-    <nav class="navbar navbar-dark bg-transparent">
+    <nav class="navbar navbar-dark fixed-top bg-transparent">
       <div class="container justify-content-center">
         <a class="navbar-brand" href="#">Page.digital</a>
       </div>
     </nav>
 <!--    page content-->
     <div class="container">
-      <div class="profile">
-        <div class="profile-panel">
-<!--          page header space-->
-          <div class="profile-panel-header"></div>
-<!--          page header menu-->
-          <div class="profile-panel-menu">
-            <div class="profile-image"></div>
-            <div class="profile-panel-actions"></div>
+      <div class="container-lg">
+        <div class="profile row">
+          <div class="profile-panel col">
+            <!--          page header space-->
+            <div class="profile-panel-header">
+              <div class="profile-panel-header-bg" style="background-image: url(<%= profile_page_header_image_url %>)"></div>
+            </div>
+            <!--          page header menu-->
+            <div class="profile-panel-menu d-flex justify-content-between my-3">
+              <div class="profile-image">
+                <figure>
+                  <%= link_to public_page_url(@page) do %>
+                    <%= attached_image_tag(@page.page_profile.profile_image, 'profile_image_placeholder.svg', class: 'rounded-circle') %>
+                  <% end %>
+                </figure>
+              </div>
+              <div class="profile-panel-actions">
+                <button class="btn btn-primary me-1" title="Make a call"><i class="bi bi-telephone-fill"></i></button>
+                <button class="btn btn-primary me-1" title="Send a private message"><i class="bi bi-chat-dots-fill"></i></button>
+                <button class="btn btn-primary" title="Receive update notifications"><i class="bi bi-bell-fill"></i></button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="main-content">
-        <div class="about"></div>
-        <div class="content"></div>
+
+        <div class="spacer d-none d-md-block py-md-2"></div>
+
+        <div class="main-content row">
+          <div class="about col-12 col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="title d-flex justify-content-between">
+                  <div>
+                    <h1 class="h5 m-0"><%= @page.page_profile.display_name %></h1>
+                    <div class="text-muted">@<%= @page.slug %></div>
+                  </div>
+                  <div>
+                    <button class="btn btn-sm btn-primary border border-dark" data-bs-toggle="modal" data-bs-target="#qr-code-modal">
+                      <i class="bi bi-qr-code"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="spacer py-2"></div>
+                <div>
+                  <%= @page.page_profile.description %>
+                </div>
+                <% unless @page.page_profile.location.blank? %>
+                  <div class="spacer py-2"></div>
+                  <div class="text-muted">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span><%= @page.page_profile.location %></span>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="content col-12 col-md-8">
+            <div class="d-flex flex-column gap-2">
+              <% @page.content_items.each do |item| %>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-auto">
+                        <%= link_to item.url do %>
+                          <%= attached_image_tag(item.custom_thumbnail_image, 'link_thumbnail_placeholder.svg', class: 'rounded', size: 48) %>
+                        <% end %>
+                      </div>
+                      <div class="col overflow-hidden">
+                        <%= link_to item.url, class: 'd-block text-decoration-none w-100' do %>
+                          <div class="item-title text-truncate" title="<%= item.title %>"><%= item.title %></div>
+                          <div class="item-url text-muted text-truncate" title="<%= item.subtitle %>"><%= item.subtitle %></div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
