@@ -1,0 +1,74 @@
+
+$custom-color-themes: (
+  "blue":       #3E00FF,
+  "indigo":     #6610f2,
+  "purple":     #AE00FB,
+  "pink":       #FF82C3,
+  "red":        #da2b38,
+  "orange":     #FF9800,
+  "yellow":     #FBC02D,
+  "green":      #70cf27,
+  "gray":       #6c757d,
+);
+
+
+// color schema themes
+body.public-page.user-profile {
+  @each $color, $value in $custom-color-themes {
+    .theme-#{$color} {
+      // Links
+
+      a {
+        color: $value;
+
+        &:hover {
+          color: shift-color($value, $link-shade-percentage);
+        }
+      }
+
+      // Buttons
+
+      .btn-primary {
+        @include button-variant($value, $value);
+      }
+
+      .btn-outline-primary {
+        @include button-outline-variant($value);
+      }
+
+      // Card
+
+      .card {
+        &.border-highlight {
+          border-color: rgba($value, 0.5);
+        }
+        &.card-hover:hover {
+          background-color: rgba($value, 0.05) !important;
+        }
+      }
+
+      // Dark theme
+
+      &.schema-dark {
+        .card {
+          &.card-hover:hover {
+            background-color: rgba($value, 0.3) !important;
+          }
+
+          .item-title {
+            color: tint-color($value, 40%) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// colors for backend
+.color-picker {
+  @each $color, $value in $custom-color-themes {
+    label[for=page_appearance_primary_color_#{$color}] {
+      @include button-variant($value, $value);
+    }
+  }
+}

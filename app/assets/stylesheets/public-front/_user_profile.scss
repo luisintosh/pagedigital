@@ -3,37 +3,10 @@ $header-height-sm: 100px;
 $header-height-md: 200px;
 $profile-img-width-sm: 86px;
 $profile-img-width-md: 166px;
-$dark-bg: $gray-800;
 
 body.public-page.user-profile {
   background-size: cover;
   background-repeat: repeat-y;
-
-  .wrap {
-    // dark theme
-    &.schema-dark {
-      .text-muted {
-        color: $gray-500 !important;
-      }
-      .card {
-        background-color: $dark-bg;
-        &:hover {
-          background-color: rgba(var(--bs-primary-rgb), 0.3) !important;
-        }
-        .item-title {
-          color: tint-color($primary, 40%) !important;
-        }
-      }
-      .bottom-separator.border-bottom {
-        border-color: $gray-700 !important;
-      }
-      @include media-breakpoint-down(sm) {
-        .profile, .main-content .about {
-          background: $dark-bg;
-        }
-      }
-    }
-  }
 
   .wrap-inner {
     min-height: 100%;

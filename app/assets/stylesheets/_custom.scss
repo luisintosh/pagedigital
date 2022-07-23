@@ -19,7 +19,7 @@
 
 .card {
   &.card-hover:hover {
-    background-color: rgba(var(--bs-primary-rgb), 0.05) !important;
+    background-color: rgba(var(--bs-primary-rgb), 0.05);
   }
   &.card-shadow {
     box-shadow: $box-shadow;

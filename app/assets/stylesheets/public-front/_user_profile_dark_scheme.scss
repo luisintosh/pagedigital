@@ -1,0 +1,42 @@
+$dark-bg: $gray-800;
+
+body.public-page.user-profile {
+  .schema-dark {
+
+    .text-muted {
+      color: $gray-500 !important;
+    }
+
+    // Custom cards
+    .card {
+      background-color: $dark-bg;
+      &.card-hover:hover {
+        background-color: rgba(var(--bs-primary-rgb), 0.3);
+      }
+      .item-title {
+        color: tint-color($primary, 40%);
+      }
+    }
+
+    // Profile bar behind the header image
+    .profile {
+      @include media-breakpoint-down(sm) {
+        background: $dark-bg;
+      }
+    }
+
+    // Separator next to about card
+    .bottom-separator.border-bottom {
+      border-color: $gray-700 !important;
+    }
+
+    // About card with user info
+    .main-content {
+      @include media-breakpoint-down(sm) {
+        .about {
+          background: $dark-bg;
+        }
+      }
+    }
+  }
+}

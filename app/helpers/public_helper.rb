@@ -7,11 +7,16 @@ module PublicHelper
     end
   end
 
-  def theme_css_class
+  def schema_color_css_class
     if @page.page_appearance.theme_light?
-      "schema-light"
+      'schema-light'
     elsif @page.page_appearance.theme_dark?
-      "schema-dark"
+      'schema-dark'
     end
+  end
+
+  def theme_color_css_class
+    color = @page.page_appearance.primary_color
+    color.blank? ? '' : "theme-#{color}"
   end
 end

@@ -18,6 +18,9 @@ form {
         }
         input[type="radio"]:checked + label.btn {
           border-color: $primary !important;
+          &::after {
+            content: " ✅";
+          }
         }
       }
     }

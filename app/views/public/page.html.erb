@@ -1,9 +1,9 @@
-<div class="wrap vh-100 <%= theme_css_class %>">
+<div class="wrap vh-100 <%= "#{schema_color_css_class} #{theme_color_css_class}"  %>">
   <div class="wrap-inner">
 <!--    navigation bar-->
     <nav class="navbar navbar-dark fixed-top bg-transparent">
       <div class="container justify-content-center">
-        <a class="navbar-brand" href="#">Page.digital</a>
+        <a class="navbar-brand text-white" href="#">Page.digital</a>
       </div>
     </nav>
 <!--    page content-->
@@ -46,7 +46,7 @@
                       <div class="text-muted">@<%= @page.slug %></div>
                     </div>
                     <div>
-                      <button class="btn btn-sm btn-primary border border-dark" data-bs-toggle="modal" data-bs-target="#qr-code-modal">
+                      <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#qr-code-modal">
                         <i class="bi bi-qr-code"></i>
                       </button>
                       <%= render 'components/qr_modal', modal_title: 'Scan this code', page: @page %>
