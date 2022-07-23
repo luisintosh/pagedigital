@@ -3,19 +3,7 @@
     <button class="btn btn-sm btn-secondary border border-dark" data-bs-toggle="modal" data-bs-target="#qr-code-modal">
       <i class="bi bi-qr-code"></i>
     </button>
-    <div id="qr-code-modal" class="modal fade" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">This QR code points to your page</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <%= image_tag "https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=#{public_page_url(page)}", class: 'img-thumbnail mx-auto' %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'components/qr_modal', modal_title: 'This QR code points to your page', page: @page %>
   </div>
 
   <div class="col-auto">
