@@ -6,4 +6,12 @@ module PublicHelper
       asset_path('header_image_placeholder.svg')
     end
   end
+
+  def theme_css_class
+    if @page.page_appearance.theme_light?
+      "schema-light"
+    elsif @page.page_appearance.theme_dark?
+      "schema-dark"
+    end
+  end
 end

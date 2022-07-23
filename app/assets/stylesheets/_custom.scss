@@ -19,12 +19,27 @@
 
 .card {
   &.card-hover:hover {
-    background-color: rgba(var(--bs-primary-rgb), 0.05);
+    background-color: rgba(var(--bs-primary-rgb), 0.05) !important;
   }
   &.card-shadow {
     box-shadow: $box-shadow;
   }
   &.border-highlight {
     border-color: rgba(var(--bs-primary-rgb), 0.5);
+  }
+}
+
+.schema {
+  &-light {
+    --bs-bg-opacity: 1;
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  }
+  &-dark {
+    --bs-bg-opacity: 1;
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
   }
 }
