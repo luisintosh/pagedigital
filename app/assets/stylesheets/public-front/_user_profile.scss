@@ -74,14 +74,22 @@ body.public-page.user-profile {
       .about {
         background: $card-bg;
 
+        .bottom-separator {
+          padding: 1px;
+          box-shadow: $box-shadow;
+          margin-right: calc(-0.5 * var(--bs-gutter-x));
+          margin-left: calc(-0.5 * var(--bs-gutter-x));
+        }
+
         .card {
-          border-top-width: 0;
-          border-right-width: 0;
-          border-left-width: 0;
+          border: none;
+
+          &.card-shadow {
+            box-shadow: none;
+          }
+
           .card-body {
-            padding-top: 0;
-            padding-right: 0;
-            padding-left: 0;
+            padding: 0;
           }
         }
       }

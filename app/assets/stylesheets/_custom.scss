@@ -16,3 +16,15 @@
     max-width: map-get($container-max-widths, 'lg');
   }
 }
+
+.card {
+  &.card-hover:hover {
+    background-color: rgba(var(--bs-primary-rgb), 0.05);
+  }
+  &.card-shadow {
+    box-shadow: $box-shadow;
+  }
+  &.border-highlight {
+    border-color: rgba(var(--bs-primary-rgb), 0.5);
+  }
+}
