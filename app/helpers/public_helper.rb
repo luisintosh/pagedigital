@@ -19,4 +19,9 @@ module PublicHelper
     color = @page.page_appearance.primary_color
     color.blank? ? '' : "theme-#{color}"
   end
+
+  def font_css_class
+    font_name = @page.page_appearance.font
+    font_name.blank? ? '' : "font-#{font_name}"
+  end
 end

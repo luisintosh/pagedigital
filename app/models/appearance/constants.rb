@@ -6,7 +6,10 @@ module Appearance
     }.freeze
 
     FONTS = {
-      default: 0
+      lato: 0,
+      montserrat: 1,
+      robotoslab: 2,
+      rubik: 3
     }.freeze
 
     COLORS = {
