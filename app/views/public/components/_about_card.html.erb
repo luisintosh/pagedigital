@@ -1,0 +1,27 @@
+<div class="card card-shadow">
+  <div class="card-body">
+    <div class="d-flex flex-column gap-3">
+      <div class="title d-flex justify-content-between">
+        <div>
+          <h1 class="h5 m-0"><%= @page.page_profile.display_name %></h1>
+          <div class="text-muted">@<%= @page.slug %></div>
+        </div>
+        <div>
+          <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#qr-code-modal">
+            <i class="bi bi-qr-code"></i>
+          </button>
+          <%= render 'components/qr_modal', modal_title: 'Scan this code', page: @page %>
+        </div>
+      </div>
+      <div>
+        <%= @page.page_profile.description %>
+      </div>
+      <% unless @page.page_profile.location.blank? %>
+        <div class="text-muted">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span><%= @page.page_profile.location %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
