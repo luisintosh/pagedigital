@@ -1,0 +1,28 @@
+<% if @page.page_contact.display_public_phone %>
+  <% if @page.page_contact.public_phone_type_call? %>
+    <%= link_to "tel:#{@page.page_contact.public_phone}", class: 'btn btn-primary me-1', target: '_blank' do %>
+      <i class="bi bi-telephone-fill"></i>
+    <% end %>
+  <% end %>
+  <% if @page.page_contact.public_phone_type_sms? %>
+    <%= link_to "tel:#{@page.page_contact.public_phone}", class: 'btn btn-primary me-1', target: '_blank' do %>
+      <i class="bi bi-chat-dots-fill"></i>
+    <% end %>
+  <% end %>
+  <% if @page.page_contact.public_phone_type_whatsapp? %>
+    <%= link_to "https://wa.me/#{@page.page_contact.public_phone}", class: 'btn btn-primary me-1', target: '_blank' do %>
+      <i class="bi bi-whatsapp"></i>
+    <% end %>
+  <% end %>
+  <% if @page.page_contact.public_phone_type_telegram? %>
+    <%= link_to "https://t.me/#{@page.page_contact.public_phone}", class: 'btn btn-primary me-1', target: '_blank' do %>
+      <i class="bi bi-telegram"></i>
+    <% end %>
+  <% end %>
+<% end %>
+<% if @page.page_contact.display_public_email %>
+  <%= link_to "mailto:#{@page.page_contact.public_email}", class: 'btn btn-primary me-1', target: '_blank' do %>
+    <i class="bi bi-envelope-fill"></i>
+  <% end %>
+<% end %>
+<button class="btn btn-primary" title="Receive update notifications" disabled><i class="bi bi-bell-fill"></i></button>
