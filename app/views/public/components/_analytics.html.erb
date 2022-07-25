@@ -1,0 +1,14 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HL7H8Q3PBT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  // Page.digital code
+  gtag('config', 'G-HL7H8Q3PBT');
+
+  <% if @page.page_integration.google_analytics %>
+    // Customer code
+    gtag('config', '<%= @page.page_integration.google_analytics %>');
+  <% end %>
+</script>

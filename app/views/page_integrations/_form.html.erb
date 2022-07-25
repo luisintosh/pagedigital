@@ -8,8 +8,8 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
         <div class="form-inputs">
-          <%= f.input :facebook_pixel %>
-          <%= f.input :google_analytics %>
+          <%= f.input :facebook_pixel, hint: 'Meta Pixel' %>
+          <%= f.input :google_analytics, hint: 'Global site tag (gtag.js)' %>
           <%= f.input :email_capture, as: :boolean %>
         </div>
 
