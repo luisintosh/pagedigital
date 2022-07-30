@@ -4,6 +4,14 @@
   <div class="card">
     <div class="card-body">
       <%= simple_form_for(@page_integration, url: page_page_integration_url) do |f| %>
+        <div class="alert alert-primary" role="alert">
+          <span>
+            The tracking codes lets you analyze the traffic to your page and track ad campaigns.
+            You can learn more here: <a href="https://www.facebook.com/business/tools/meta-pixel" target="_blank">Meta Pixel</a>,
+            <a href="https://marketingplatform.google.com/about/analytics/" target="_blank">Google Analytics</a>.
+          </span>
+        </div>
+
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 

@@ -8,10 +8,10 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
         <div class="form-inputs">
-          <%= f.input :display_public_email, as: :boolean %>
+          <%= f.input :display_public_email, as: :boolean, hint: 'Enable the button to send an email' %>
           <%= f.input :public_email %>
-          <%= f.input :display_public_phone, as: :boolean %>
-          <%= f.input :public_phone %>
+          <%= f.input :display_public_phone, as: :boolean, hint: 'Enable the button to contact you via your phone number' %>
+          <%= f.input :public_phone, hint: 'Use your phone number without spaces and the country code. Example: +12124567890' %>
           <%= f.input :public_phone_type, collection: PageContact.public_phone_types.keys, as: :radio_buttons,
                       item_label_class: 'btn btn-outline-primary btn-lg bg-transparent text-body border border-2', collection_wrapper_tag: 'div',
                       collection_wrapper_class: 'row', item_wrapper_class: 'col col-6' %>
