@@ -1,4 +1,4 @@
-<div class="wrap vh-100 <%= "#{schema_color_css_class} #{theme_color_css_class} #{font_css_class}"  %>">
+<div class="wrap h-100 <%= "#{schema_color_css_class} #{theme_color_css_class} #{font_css_class}"  %>">
   <div class="wrap-inner">
 <!--    Navigation bar-->
     <nav class="navbar navbar-dark fixed-top bg-transparent">
@@ -38,6 +38,7 @@
           <div class="about col-12 col-md-4 mb-3">
 <!--            About user-->
             <%= render 'public/components/about_card' %>
+            <%= render 'public/components/footer' %>
             <div class="bottom-separator border-bottom mt-3 d-block d-md-none"></div>
           </div>
           <div class="content col-12 col-md-8">

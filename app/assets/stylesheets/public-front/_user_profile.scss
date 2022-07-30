@@ -95,4 +95,18 @@ body.public-page.user-profile {
       }
     }
   }
+
+  footer {
+    @include media-breakpoint-down(sm) {
+      position: absolute;
+      bottom: 1rem;
+      left: 0;
+      right: 0;
+    }
+
+    a {
+      color: $text-muted !important;
+      text-decoration: none;
+    }
+  }
 }
