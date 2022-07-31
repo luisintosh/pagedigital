@@ -1,0 +1,21 @@
+<div class="d-flex align-items-center justify-content-center vh-100">
+  <div class="text-center">
+    <h1 class="display-1 fw-bold">403</h1>
+    <p class="fs-3">We are sorry.</p>
+    <p class="lead">
+      The page you’re trying to get has restricted access.<br>
+      <% if @page.lock_code.empty? %>
+        Please retry it later.
+      <% else %>
+        Please enter the code to unlock:
+        <%= form_for(:page, url: public_page_path, html: { data: { turbo: false } }) do |f|  %>
+          <div class="input-group">
+            <input type="text" name="unlock_code" class="form-control">
+            <button class="btn btn-primary" type="submit">Unlock</button>
+          </div>
+        <% end %>
+      <% end %>
+    </p>
+    <a href="/" class="btn btn-outline-primary">Go Home</a>
+  </div>
+</div>

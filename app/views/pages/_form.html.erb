@@ -9,14 +9,14 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
         <div class="form-inputs">
-          <%= f.input :slug, label: 'Page URL' do %>
+          <%= f.input :slug, label: 'Page URL', hint: 'Select your page URL' do %>
             <div class="input-group">
               <span class="input-group-text">https://page.digital/</span>
               <%= f.input_field :slug, class: 'form-control' %>
             </div>
           <% end %>
-          <%= f.input :published %>
-          <%= f.input :lock_code %>
+          <%= f.input :published, hint: 'You can deactivate your page whenever you want' %>
+          <%= f.input :lock_code, hint: 'Ask for a secret code to enter to your page' %>
         </div>
 
         <div class="form-actions">
