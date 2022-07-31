@@ -1,4 +1,6 @@
-<div class="wrap h-100 <%= "#{schema_color_css_class} #{theme_color_css_class} #{font_css_class}"  %>">
+<% content_for(:html_title) { "#{@page.page_profile.display_name} (@#{@page.slug}) · Page.digital" } %>
+
+<div class="wrap h-100 public-page user-profile <%= "#{schema_color_css_class} #{theme_color_css_class} #{font_css_class}"  %>">
   <div class="wrap-inner">
 <!--    Navigation bar-->
     <nav class="navbar navbar-dark fixed-top bg-transparent">

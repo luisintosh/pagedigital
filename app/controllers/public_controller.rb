@@ -8,7 +8,7 @@ class PublicController < ApplicationController
   def page
     @page = Page.includes_all.find_by!(slug: page_params[:page_slug])
     if @page.published && (@page.lock_code.empty? || @page.lock_code == page_params[:unlock_code])
-      render 'page', layout: 'public_page'
+      render 'page'
     else
       render 'restricted_page', status: :forbidden
     end

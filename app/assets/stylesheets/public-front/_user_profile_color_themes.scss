@@ -13,7 +13,7 @@ $custom-color-themes: (
 
 
 // color schema themes
-body.public-page.user-profile {
+.public-page.user-profile {
   @each $color, $value in $custom-color-themes {
     .theme-#{$color} {
       // Links
