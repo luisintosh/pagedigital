@@ -9,7 +9,7 @@ class PageContactsController < ApplicationController
   # PATCH/PUT /page/1/page_contacts
   def update
     if @page_contact.update(page_contact_params)
-      redirect_to edit_page_page_contact_url(@page_contact.page), notice: "Page contact was successfully updated."
+      redirect_to edit_page_page_contact_url(@page_contact.page), notice: 'Contact information successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end

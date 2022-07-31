@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to edit_page_url(@page), notice: "Page was successfully created."
+      redirect_to edit_page_url(@page), notice: 'Your page has been created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,7 +24,7 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   def update
     if @page.update(page_params)
-      redirect_to edit_page_url(@page), notice: "Page was successfully updated."
+      redirect_to edit_page_url(@page), notice: 'Your page has been updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
 
-    redirect_to pages_url, notice: "Page was successfully destroyed."
+    redirect_to pages_url, notice: 'Page successfully destroyed.'
   end
 
   private

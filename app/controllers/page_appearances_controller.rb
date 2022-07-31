@@ -9,7 +9,7 @@ class PageAppearancesController < ApplicationController
   # PATCH/PUT /page/1/page_appearances
   def update
     if @page_appearance.update(page_appearance_params)
-      redirect_to edit_page_page_appearance_url(@page_appearance.page), notice: "Page appearance was successfully updated."
+      redirect_to edit_page_page_appearance_url(@page_appearance.page), notice: 'Appearance successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end

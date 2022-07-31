@@ -4,6 +4,7 @@
   <div class="card">
     <div class="card-body">
       <%= simple_form_for(@page_integration, url: page_page_integration_url) do |f| %>
+        <%= render 'components/notice' %>
         <div class="alert alert-primary" role="alert">
           <span>
             The tracking codes lets you analyze the traffic to your page and track ad campaigns.

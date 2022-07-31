@@ -9,7 +9,7 @@ class PageIntegrationsController < ApplicationController
   # PATCH/PUT /page/1/page_integrations
   def update
     if @page_integration.update(page_integration_params)
-      redirect_to page_page_integration_url(@page_integration.page), notice: "Page integration was successfully updated."
+      redirect_to page_page_integration_url(@page_integration.page), notice: 'Integration tools successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
