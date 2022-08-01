@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout 'devise', only: %i[new create]
   before_action :set_page, only: %i[edit update destroy]
 
   # GET /pages/new
@@ -15,7 +16,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to edit_page_url(@page), notice: 'Your page has been created.'
+      redirect_to page_content_items_url(@page)
     else
       render :new, status: :unprocessable_entity
     end

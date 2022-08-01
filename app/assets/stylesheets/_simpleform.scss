@@ -3,6 +3,10 @@ form {
   .form-group {
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
+
+    .invalid-feedback {
+      display: block;
+    }
   }
   // radio inputs like square
   .form-inputs {
