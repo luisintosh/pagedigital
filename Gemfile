@@ -86,3 +86,7 @@ gem "rack-timeout"
 gem 'bootstrap', '~> 5.1.3'
 # form components
 gem 'simple_form'
+# authentication
+gem 'devise'
+gem "devise-i18n"
+gem 'devise-bootstrap-views', '~> 1.0'

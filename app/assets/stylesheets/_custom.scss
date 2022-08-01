@@ -1,5 +1,15 @@
+$wrap-inner-margin: 4rem;
+
 html, body {
   height: 100%;
+}
+
+.wrap-inner {
+  min-height: 100%;
+  height: auto;
+  overflow-x: hidden;
+  padding: $wrap-inner-margin 0;
+  position: relative;
 }
 
 .cursor-grab {

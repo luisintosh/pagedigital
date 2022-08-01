@@ -1,4 +1,3 @@
-$wrap-inner-margin: 4rem;
 $header-height-sm: 100px;
 $header-height-md: 200px;
 $profile-img-width-sm: 86px;
@@ -7,14 +6,6 @@ $profile-img-width-md: 166px;
 .public-page.user-profile {
   background-size: cover;
   background-repeat: repeat-y;
-
-  .wrap-inner {
-    min-height: 100%;
-    height: auto;
-    overflow-x: hidden;
-    padding: $wrap-inner-margin 0;
-    position: relative;
-  }
 
   .navbar.bg-transparent {
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));;
