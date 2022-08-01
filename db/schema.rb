@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_01_213936) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_01_231031) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -107,7 +107,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_213936) do
     t.string "lock_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
+    t.index ["user_id"], name: "index_pages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -129,4 +131,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_213936) do
   add_foreign_key "page_contacts", "pages"
   add_foreign_key "page_integrations", "pages"
   add_foreign_key "page_profiles", "pages"
+  add_foreign_key "pages", "users"
 end

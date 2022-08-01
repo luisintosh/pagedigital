@@ -9,6 +9,8 @@ class Page < ApplicationRecord
 
   has_many :content_items, dependent: :destroy
 
+  belongs_to :user, validate: true
+
   validates :slug, presence: true, uniqueness: { case_sensitive: false },
                    length: { in: 2..24 }, format: { with: /\A\w+\Z/ },
                    exclusion: { in: Page::BLACK_LIST }

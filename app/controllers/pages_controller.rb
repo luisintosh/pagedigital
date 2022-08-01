@@ -4,7 +4,12 @@ class PagesController < ApplicationController
 
   # GET /pages/new
   def new
-    @page = Page.new
+    user_pages = current_user.pages
+    if user_pages.count > 1
+      redirect_to edit_page_url(user_pages.first)
+    else
+      @page = user_pages.new
+    end
   end
 
   # GET /pages/1/edit
@@ -13,9 +18,9 @@ class PagesController < ApplicationController
 
   # POST /pages
   def create
-    @page = Page.new(page_params)
+    @page = current_user.pages.new(page_params)
 
-    if @page.save
+    if @page.save && current_user.pages.count == 1
       redirect_to page_content_items_url(@page)
     else
       render :new, status: :unprocessable_entity

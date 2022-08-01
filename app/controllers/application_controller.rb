@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
   private
   def set_page
-    @page = Page.find_by!(slug: params[:page_slug]) unless params[:page_slug].empty?
+    @page = current_user.pages.find_by!(slug: params[:page_slug]) unless params[:page_slug].empty?
   end
 end
