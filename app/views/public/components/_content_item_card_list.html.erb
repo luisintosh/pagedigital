@@ -1,19 +1,21 @@
 <% @page.content_items.each do |item| %>
-  <div class="card card-hover card-shadow border-highlight">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-auto">
-          <%= link_to item.url, target: '_blank' do %>
-            <%= attached_image_tag(item.custom_thumbnail_image, 'link_thumbnail_placeholder.svg', class: 'rounded', size: 48) %>
-          <% end %>
-        </div>
-        <div class="col overflow-hidden">
-          <%= link_to item.url, target: '_blank', class: 'd-block text-decoration-none w-100' do %>
-            <div class="item-title text-truncate fw-bold" title="<%= item.title %>"><%= item.title %></div>
-            <div class="item-url text-muted text-truncate" title="<%= item.subtitle %>"><%= item.subtitle %></div>
-          <% end %>
+  <% if !item.schedule || (item.schedule_date.to_i < DateTime.now.to_i) %>
+    <div class="card card-hover card-shadow border-highlight">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-auto">
+            <%= link_to item.url, target: '_blank' do %>
+              <%= attached_image_tag(item.custom_thumbnail_image, 'link_thumbnail_placeholder.svg', class: 'rounded', size: 48) %>
+            <% end %>
+          </div>
+          <div class="col overflow-hidden">
+            <%= link_to item.url, target: '_blank', class: 'd-block text-decoration-none w-100' do %>
+              <div class="item-title text-truncate fw-bold" title="<%= item.title %>"><%= item.title %></div>
+              <div class="item-url text-muted text-truncate" title="<%= item.subtitle %>"><%= item.subtitle %></div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

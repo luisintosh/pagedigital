@@ -38,7 +38,7 @@
             <li class="nav-item" role="presentation">
               <button class="nav-link" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_schedule') %>" type="button" role="tab" aria-controls="contact" aria-selected="false">
                 <%= f.input :schedule, label: false do %>
-                  <%= f.input_field :schedule, class: 'form-check-input', disabled: true %>
+                  <%= f.input_field :schedule, class: 'form-check-input' %>
                   <span>Schedule</span>
                 <% end %>
               </button>
@@ -68,9 +68,9 @@
               </div>
             </div>
             <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_schedule') %>" role="tabpanel" aria-labelledby="schedule-tab">
-              <h5>Schedule a link (Work in progress)</h5>
+              <h5>Schedule a link</h5>
               <p>Schedule when your Link go live.</p>
-              <%= f.input :schedule_date, as: :datetime, html5: true %>
+              <%= f.input :schedule_date, as: :date, html5: true %>
             </div>
           </div>
         </div>
