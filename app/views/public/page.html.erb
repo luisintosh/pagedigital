@@ -5,7 +5,9 @@
 <!--    Navigation bar-->
     <nav class="navbar navbar-dark fixed-top bg-transparent">
       <div class="container justify-content-center">
-        <a class="navbar-brand text-white" href="#">Page.digital</a>
+        <%= link_to public_page_url(@page), class: 'navbar-brand' do %>
+          <%= image_tag('logo.svg', width: 130) %>
+        <% end %>
       </div>
     </nav>
 <!--    Page content-->
