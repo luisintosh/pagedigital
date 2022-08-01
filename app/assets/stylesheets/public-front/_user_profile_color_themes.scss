@@ -42,6 +42,9 @@ $custom-color-themes: (
         &.border-highlight {
           border-color: rgba($value, 0.5);
         }
+        &.card-highlight {
+          background-color: rgba($value, 0.05)
+        }
         &.card-hover:hover {
           background-color: rgba($value, 0.05) !important;
         }

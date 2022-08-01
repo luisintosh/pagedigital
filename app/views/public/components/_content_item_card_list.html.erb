@@ -1,6 +1,6 @@
 <% @page.content_items.each do |item| %>
   <% if !item.schedule || (item.schedule_date.to_i < DateTime.now.to_i) %>
-    <div class="card card-hover card-shadow border-highlight">
+    <div class="card card-hover card-shadow border-highlight <%= item.highlight && 'card-highlight' %>">
       <div class="card-body">
         <div class="row">
           <div class="col-auto">

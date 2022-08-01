@@ -14,7 +14,7 @@
             <li class="nav-item" role="presentation">
               <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#<%= dom_id(@content_item, 'tab_highlight') %>" type="button" role="tab" aria-controls="profile" aria-selected="true">
                 <%= f.input :highlight, label: false do %>
-                  <%= f.input_field :highlight, class: 'form-check-input', disabled: true %>
+                  <%= f.input_field :highlight, class: 'form-check-input' %>
                   <span>Highlight</span>
                 <% end %>
               </button>
@@ -46,7 +46,7 @@
           </ul>
           <div class="tab-content bg-light">
             <div class="tab-pane fade show active p-3" id="<%= dom_id(@content_item, 'tab_highlight') %>" role="tabpanel" aria-labelledby="highlight-tab">
-              <h5>Highlight link (Work in progress)</h5>
+              <h5>Highlight link</h5>
               <p>Draw attention to your most important link.</p>
             </div>
             <div class="tab-pane fade p-3" id="<%= dom_id(@content_item, 'tab_embedded') %>" role="tabpanel" aria-labelledby="embedded-tab">
