@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   def new
     user_pages = current_user.pages
-    if user_pages.count > 1
+    if user_pages.count >= 1
       redirect_to edit_page_url(user_pages.first)
     else
       @page = user_pages.new
