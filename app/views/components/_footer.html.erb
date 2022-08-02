@@ -3,12 +3,12 @@
     <a href="/app/assets/builds" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
       <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
     </a>
-    <span class="text-muted">© <%= Time.now.year %> Page.digital</span>
+    <span class="text-muted">© <%= Time.now.year %> <%= link_to 'Page.digital', root_url, class: 'text-muted' %></span>
   </div>
 
   <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-    <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
-    <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
-    <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-tiktok"></i></a></li>
+    <li class="ms-3"><%= link_to 'Terms', public_terms_url %></li>
+    <li class="ms-3"><%= link_to 'Privacy', public_privacy_url %></li>
+    <li class="ms-3"><%= link_to 'Support', 'mailto:support@page.digital' %></li>
   </ul>
 </footer>
