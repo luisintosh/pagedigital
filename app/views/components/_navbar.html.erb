@@ -31,7 +31,7 @@
             😋 User
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarUserDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><%= link_to 'Profile', edit_user_registration_url, class: 'dropdown-item' %></li>
             <li><%= link_to 'Disconnect', destroy_user_session_url, class: 'dropdown-item', data: { turbo_method: :delete } %></li>
           </ul>
         </li>
