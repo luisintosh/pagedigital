@@ -26,3 +26,7 @@
   <% end %>
 <% end %>
 <!--<button class="btn btn-primary" title="Receive update notifications" disabled><i class="bi bi-bell-fill"></i></button>-->
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#qr-code-modal">
+  <i class="bi bi-qr-code"></i>
+</button>
+<%= render 'components/qr_modal', modal_title: "Scan this QR code with your camera ✨", page: @page %>

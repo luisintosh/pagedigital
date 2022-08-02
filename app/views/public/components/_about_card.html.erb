@@ -1,16 +1,10 @@
 <div class="card card-shadow">
   <div class="card-body">
     <div class="d-flex flex-column gap-3">
-      <div class="title d-flex justify-content-between">
+      <div class="title">
         <div>
           <h1 class="h5 m-0"><%= @page.page_profile.display_name %></h1>
           <div class="text-muted">@<%= @page.slug %></div>
-        </div>
-        <div>
-          <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#qr-code-modal">
-            <i class="bi bi-qr-code"></i>
-          </button>
-          <%= render 'components/qr_modal', modal_title: 'Scan this code', page: @page %>
         </div>
       </div>
       <div>
