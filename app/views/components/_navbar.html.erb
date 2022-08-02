@@ -26,6 +26,15 @@
         <li class="nav-item">
           <%= link_to '⚙️ Configuration', edit_page_url(page), class: class_names('nav-link', { active: current_page?(edit_page_url(page)) }) %>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            😋 User
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarUserDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><%= link_to 'Disconnect', destroy_user_session_url, class: 'dropdown-item', data: { turbo_method: :delete } %></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
