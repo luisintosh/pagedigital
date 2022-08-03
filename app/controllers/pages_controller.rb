@@ -3,7 +3,12 @@ class PagesController < ApplicationController
   before_action :set_page, only: %i[edit update destroy]
 
   def index
-    redirect_to new_page_url
+    page = current_user.pages.first
+    if page
+      redirect_to page_content_items_path(page)
+    else
+      redirect_to new_page_path
+    end
   end
 
   # GET /pages/new
