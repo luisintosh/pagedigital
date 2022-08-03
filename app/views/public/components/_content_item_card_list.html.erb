@@ -11,7 +11,11 @@
           <div class="col overflow-hidden">
             <%= link_to item.url, target: '_blank', class: 'd-block text-decoration-none w-100' do %>
               <div class="item-title text-truncate fw-bold" title="<%= item.title %>"><%= item.title %></div>
-              <div class="item-url text-muted text-truncate" title="<%= item.subtitle %>"><%= item.subtitle %></div>
+              <% if item.subtitle.blank? %>
+                <div class="item-url text-muted text-truncate" title="<%= item.url %>"><%= item.url %></div>
+              <% else %>
+                <div class="item-subtitle text-muted text-truncate" title="<%= item.subtitle %>"><%= item.subtitle %></div>
+              <% end %>
             <% end %>
           </div>
         </div>
