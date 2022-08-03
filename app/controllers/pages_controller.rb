@@ -2,6 +2,10 @@ class PagesController < ApplicationController
   layout 'devise', only: %i[new create]
   before_action :set_page, only: %i[edit update destroy]
 
+  def index
+    redirect_to new_page_url
+  end
+
   # GET /pages/new
   def new
     user_pages = current_user.pages
@@ -46,7 +50,7 @@ class PagesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_page
-    @page = Page.find_by!(slug: params[:slug])
+    @page = current_user.pages.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

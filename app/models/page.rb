@@ -19,12 +19,6 @@ class Page < ApplicationRecord
 
   scope :includes_all, -> { includes([:page_profile, :page_appearance, :page_contact, :page_integration, content_items: { custom_thumbnail_image_attachment: :blob }]) }
 
-  # helps to url helpers to use the slug instead of id to build the url
-  def to_param
-    super
-    slug
-  end
-
   private
 
   def build_default_dependencies

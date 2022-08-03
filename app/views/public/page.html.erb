@@ -5,7 +5,7 @@
 <!--    Navigation bar-->
     <nav class="navbar navbar-dark fixed-top bg-transparent">
       <div class="container justify-content-center">
-        <%= link_to public_page_url(@page), class: 'navbar-brand' do %>
+        <%= link_to public_page_url(@page.slug), class: 'navbar-brand' do %>
           <%= image_tag('logo.svg', width: 30) %>
         <% end %>
       </div>
@@ -23,7 +23,7 @@
             <div class="profile-panel-menu d-flex justify-content-between my-3">
               <div class="profile-image">
                 <figure>
-                  <%= link_to public_page_url(@page) do %>
+                  <%= link_to public_page_url(@page.slug) do %>
                     <%= attached_image_tag(@page.page_profile.profile_image, 'profile_image_placeholder.svg', class: 'rounded-circle') %>
                   <% end %>
                 </figure>

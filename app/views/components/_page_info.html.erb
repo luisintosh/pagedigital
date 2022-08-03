@@ -7,13 +7,13 @@
   </div>
 
   <div class="col-auto">
-    <%= link_to public_page_url(page), class: 'btn btn-sm btn-secondary border border-dark', target: :_blank do %>
-      <span><%= "page.digital#{public_page_path(page)}" %></span>
+    <%= link_to public_page_url(page.slug), class: 'btn btn-sm btn-secondary border border-dark', target: :_blank do %>
+      <span><%= "page.digital#{public_page_path(page.slug)}" %></span>
       <i class="bi bi-box-arrow-up-right"></i>
     <% end %>
   </div>
 
   <div class="col text-lg-end">
-    <%= link_to 'Share', public_page_url(page), class: 'btn btn-sm btn-secondary border border-dark disabled' %>
+    <%= link_to 'Share', public_page_url(page.slug), class: 'btn btn-sm btn-secondary border border-dark disabled' %>
   </div>
 </div>

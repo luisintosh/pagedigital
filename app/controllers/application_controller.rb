@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
   private
   def set_page
-    @page = current_user.pages.find_by!(slug: params[:page_slug])
+    @page = current_user.pages.find(params[:page_id])
   end
 end

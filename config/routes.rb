@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope :admin do
     devise_for :users
-    resources :pages, param: :slug, path: '/' do
+    resources :pages, param: :id, path: '/' do
       resource :page_profile, only: %i[edit update]
       resource :page_appearance, only: %i[edit update]
       resource :page_contact, only: %i[edit update]
