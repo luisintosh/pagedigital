@@ -92,3 +92,5 @@ gem "devise-i18n"
 gem 'devise-bootstrap-views', '~> 1.0'
 # aws s3 file storage
 gem "aws-sdk-s3", require: false
+# email service
+gem 'mailgun-ruby', '~>1.2.5'
