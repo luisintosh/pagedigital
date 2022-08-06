@@ -3,7 +3,8 @@
     <div class="card-body">
       <div class="row">
         <div class="col-auto d-none d-md-block content-item-image">
-          <%= link_to content_item_image_tag(content_item, size: 75), edit_page_content_item_path(content_item.page, content_item) %>
+          <%= link_to content_item_image_tag(content_item.custom_thumbnail_image, content_item.url, class: 'rounded', size: 75),
+                      edit_page_content_item_path(content_item.page, content_item) %>
         </div>
         <div class="col content-item-info d-flex align-items-center overflow-hidden">
           <%= link_to edit_page_content_item_path(content_item.page, content_item), class: 'd-block text-decoration-none w-100' do %>

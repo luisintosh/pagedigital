@@ -4,9 +4,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-auto">
-            <%= link_to item.url, target: '_blank' do %>
-              <%= attached_image_tag(item.custom_thumbnail_image, 'link_thumbnail_placeholder.svg', class: 'rounded', size: 48) %>
-            <% end %>
+            <%= link_to content_item_image_tag(item.custom_thumbnail_image, item.url, class: 'rounded', size: 48),
+                        edit_page_content_item_path(item.page, item), target: '_blank' %>
           </div>
           <div class="col overflow-hidden">
             <%= link_to item.url, target: '_blank', class: 'd-block text-decoration-none w-100' do %>
