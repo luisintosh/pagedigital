@@ -5,6 +5,7 @@ window.bootstrap = bootstrap;
 
 import "./packs/activestorage"
 import "./packs/sortable"
+import "./packs/animation_globe"
 import { showBSToastMessages } from "./packs/toastmessage"
 import "./controllers"
 
