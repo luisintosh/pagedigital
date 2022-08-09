@@ -49,9 +49,12 @@ $profile-img-width-md: 166px;
             margin: 0;
 
             img {
+              object-fit: cover;
               width: $profile-img-width-sm;
+              height: $profile-img-width-sm;
               @include media-breakpoint-up(md) {
                 width: $profile-img-width-md !important;
+                height: $profile-img-width-md !important;
               }
             }
           }
