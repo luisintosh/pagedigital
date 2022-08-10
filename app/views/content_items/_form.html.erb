@@ -63,7 +63,7 @@
                   <% end %>
                 </div>
                 <div class="col d-flex align-items-center">
-                  <%= f.input :custom_thumbnail_image, label: false, input_html: { direct_upload: true, accept: 'image/*', class: 'form-control' } %>
+                  <%= f.input :custom_thumbnail_image, label: false, input_html: { direct_upload: true, accept: 'image/jpeg, image/png, image/gif', size: '1048576', class: 'form-control' } %>
                 </div>
               </div>
             </div>
