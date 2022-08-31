@@ -10,12 +10,14 @@
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 </head>
 
-<body class="bg-primary">
+<body class="bg-light">
 <div class="wrap h-100">
   <div class="wrap-inner">
     <div class="container-md">
       <div class="logo-container text-center p-5">
-        <%= image_tag('logo_full.svg', width: 150) %>
+        <%= link_to root_url do %>
+          <%= image_tag('logo_full.svg', width: 150) %>
+        <% end %>
       </div>
       <div class="card">
         <div class="card-body">
@@ -25,5 +27,6 @@
     </div>
   </div>
 </div>
+<%= render 'components/flash_message' %>
 </body>
 </html>
