@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'terms', to: 'public#terms', as: :public_terms
   get 'privacy', to: 'public#privacy', as: :public_privacy
+  get 'p/thank-you', to: 'public#thank_you'
   match ':page_slug', to: 'public#page', as: :public_page, via: %i[get post]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

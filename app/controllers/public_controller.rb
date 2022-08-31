@@ -11,6 +11,9 @@ class PublicController < ApplicationController
   def privacy
   end
 
+  def thank_you
+  end
+
   # GET/POST /:page_slug
   def page
     @page = Page.includes_all.find_by!(slug: page_params[:page_slug])
