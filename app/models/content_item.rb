@@ -5,6 +5,7 @@ class ContentItem < ApplicationRecord
 
   has_one_attached :custom_thumbnail_image
 
+  validates :custom_thumbnail_image, blob: { content_type: ['image/png', 'image/jpeg', 'image/gif'], size_range: 0..(1.megabytes) }
   validates :url, presence: true
   validates :title, presence: true, length: { maximum: 255 }
   validates :subtitle, length: { maximum: 255 }
