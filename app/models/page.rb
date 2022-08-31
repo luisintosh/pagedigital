@@ -1,5 +1,5 @@
 class Page < ApplicationRecord
-  BLACK_LIST = %w[login register logout page analytics referrals account upgrade billing checkout about pricing help
+  BLACK_LIST = %w[admin login register logout page analytics referrals account upgrade billing checkout about pricing help
                   contact terms privacy].freeze
 
   has_one :page_profile, dependent: :destroy
