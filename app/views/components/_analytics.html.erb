@@ -7,7 +7,7 @@
   // Page.digital code
   gtag('config', 'G-HL7H8Q3PBT');
 
-  <% if @page.page_integration.google_analytics %>
+  <% if @page && @page.page_integration.google_analytics %>
     // Customer code
     gtag('config', '<%= @page.page_integration.google_analytics %>');
   <% end %>
