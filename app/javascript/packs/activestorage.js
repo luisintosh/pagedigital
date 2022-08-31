@@ -8,22 +8,27 @@ addEventListener('change', async (event) => {
 })
 
 async function optimizeFileImageInputs(event) {
-    const optimizeInputs = ['page_profile[profile_image]', 'page_profile[header_image]', 'content_item[custom_thumbnail_image]']
-    if (optimizeInputs.includes(event.target.name)) {
-        // event.target.form
+    const inputFileMaps = {
+        'page_profile[profile_image]': {maxWidth: 300, maxHeight: 300},
+        'page_profile[header_image]': {maxWidth: 1920, maxHeight: 1920},
+        'content_item[custom_thumbnail_image]': {maxWidth: 100, maxHeight: 100},
+    }
+    if (inputFileMaps[event.target.name]) {
+        event.target.form.classList.add('loading-file-input');
         const files = [...event.target.files]
         const compress = new Compress();
         const imgData = await compress.compress(files, {
             size: 4,
             quality: 0.75,
-            maxWidth: 1920,
-            maxHeight: 1920,
+            maxWidth: inputFileMaps[event.target.name].maxWidth,
+            maxHeight: inputFileMaps[event.target.name].maxHeight,
             resize: true,
             rotate: false,
         })
         const {prefix, data, alt, ext} = imgData[0]
         const newFile = await urlToFile(`${prefix}${data}`, alt, ext)
         event.target.files = new FileListItems([newFile])
+        event.target.form.classList.remove('loading-file-input');
     }
 }
 
