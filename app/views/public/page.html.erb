@@ -1,4 +1,20 @@
 <% content_for(:html_title) { "#{@page.page_profile.display_name} (@#{@page.slug}) · Page.digital" } %>
+<% content_for :html_description, @page.page_profile.description %>
+<% content_for :html_header do %>
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="<%= profile_page_header_image_url %>">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="<%= profile_page_header_image_url %>">
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Person",
+      "name": "name",
+      "image": "<%= profile_page_header_image_url %>",
+      "url": "<%= public_page_url(@page.slug) %>"
+    }
+  </script>
+<% end %>
 
 <div class="wrap h-100 public-page user-profile">
   <div class="wrap-inner <%= "#{schema_color_css_class} #{theme_color_css_class} #{font_css_class}"  %>">

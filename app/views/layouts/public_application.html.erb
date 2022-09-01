@@ -2,7 +2,10 @@
 <html>
 <head>
   <title><%= content_for?(:html_title) ? yield(:html_title) : 'Page.digital' %></title>
+  <meta name="description" content="<%= yield(:html_description) %>">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <%= yield(:html_header) %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
