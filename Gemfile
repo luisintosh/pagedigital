@@ -95,3 +95,5 @@ gem "aws-sdk-s3", require: false
 gem 'activestorage-validator'
 # email service
 gem 'mailgun-ruby', '~>1.2.5'
+# back office
+gem 'activeadmin'

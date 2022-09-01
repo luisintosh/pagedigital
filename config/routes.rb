@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  scope :backend do
+    ActiveAdmin.routes(self)
+    get '/', to: 'admin/dashboard#index'
+  end
+
   scope :admin do
     devise_for :users
     resources :pages, param: :id, path: '/' do

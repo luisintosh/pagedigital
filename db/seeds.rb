@@ -6,7 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Create default user
-user = User.create(email: 'admin@page.digital', password: 'Perreo1996')
-# Create default pages
-['admin'].each { |slug| user.pages.create( slug: )}
+if Rails.env.development?
+  # Create default user
+  user = User.create(email: 'test@test', password: '123456')
+  # Create default pages
+  ['test'].each { |slug| user.pages.create( slug: )}
+  AdminUser.create!(email: 'test@test', password: '123456', password_confirmation: '123456')
+end
