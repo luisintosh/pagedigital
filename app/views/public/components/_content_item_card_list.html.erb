@@ -8,7 +8,7 @@
                         edit_page_content_item_path(item.page, item), target: '_blank' %>
           </div>
           <div class="col overflow-hidden">
-            <%= link_to item.url, target: '_blank', class: 'd-block text-decoration-none w-100' do %>
+            <%= link_to item.url, target: '_blank', class: 'd-block text-decoration-none w-100', ref: 'nofollow' do %>
               <div class="item-title text-truncate fw-bold" title="<%= item.title %>"><%= item.title %></div>
               <% if item.subtitle.blank? %>
                 <div class="item-url text-muted text-truncate" title="<%= item.url %>"><%= item.url %></div>
